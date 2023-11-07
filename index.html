@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/dist/output.css" rel="stylesheet">
+  <link href="./dist/output.css" rel="stylesheet">
   <link rel="stylesheet" href="./input.css">
+  
   <!-- ~~~~~~~~~~~~~~~~~~~~font ~~~~~~~~~~~~~~~~~~~ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,16 +30,16 @@
 </head>
 
 <body class=" bg-black ">
-<!--~~~~~~~~~~~~~~~~~~~~Nav~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~Nav~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <div class="flex items-center  h-20 w-auto border justify-around mx-1 rounded-xl my-2">
     <div class="flex items-center gap-5">
-      <img src="./images/gunna.jpeg" alt=""
-        class="h-16 w-16 hover:h-20 hover:w-20 rounded-full object-cover border ml-1 animate-bounce">
+      <img src="./images/shiddat.jpg" alt="" id="img2"
+        class="h-16 w-16 hover:h-20 hover:w-20 rounded-full object-cover border ml-1 animate-bounce bg-cover ">
       <h1 class="font-extrabold text-xl md:text-4xl text-white font-Montserrat"><span
-          class="text-purple-600 text-2xl md:text-6xl">Gun</span>na</h1>
+          class="text-purple-600 text-2xl md:text-6xl">Beat</span>Wave</h1>
     </div>
     <div>
-      <i  class="fa-regular fa-moon text-purple-300 text-4xl  " id="darkmod"></i> 
+      <i class="fa-regular fa-moon text-purple-300 text-4xl  " id="darkmod"></i>
     </div>
   </div>
 
@@ -48,11 +49,11 @@
 
 
   <div class="md:flex md:items-center md:justify-center">
-    <div class="w-auto h-2/4 mt-20 border m-4 bg-purple-300  rounded-xl shw shadow-2xl md:w-2/3 ">
+    <div class="w-auto h-2/4 mt-24 border m-4 bg-purple-300  rounded-xl shw shadow-2xl md:w-2/3 ">
       <div class="flex items-center justify-center ">
-        <img src="./images/gunna.jpeg" alt=""
-          class="h-52 w-52 rounded-full border border-purple-700 border-spacing-2 object-cover mt-4 shadow-2xl shadow-slate-600  "
-          id="img">
+        <img src="./images/shiddat.jpg" alt="" id="img"
+          class="h-52 w-52 rounded-full border border-purple-700 border-spacing-2 object-cover mt-4 shadow-2xl shadow-slate-600 bg-cover"
+          >
       </div>
 
       <div class="flex items-center justify-center gap-6 mt-6">
@@ -69,14 +70,15 @@
 
 
       <!--~~~~~~~~~~~~~~~~~~~~~Button section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      
+
       <div class="flex  items-center justify-center gap-6 mt-6 overflow-hidden">
         <i class="ri-rewind-fill text-white bg-purple-700 text-2xl rounded-full p-4 shw-btn" id="prev"></i>
-        <i onclick="playpause()" class="fa-solid fa-play text-4xl text-white bg-purple-700 rounded-full p-6 shw-btn" id="controlicon"></i>
+        <i onclick="playpause()" class="fa-solid fa-play text-4xl text-white bg-purple-700 rounded-full p-6 shw-btn"
+          id="controlicon"></i>
         <i class="ri-speed-fill text-2xl text-white bg-purple-700 rounded-full p-4 shw-btn" id="next"></i>
       </div>
       <div class="flex justify-between">
-        <img src="gif/oreo.gif" alt=""  class="animate-[wiggle_1s_ease-in-out_infinite]">
+        <img src="gif/oreo.gif" alt="" class="animate-[wiggle_1s_ease-in-out_infinite] transform">
         <img src="gif/chocolatechip.gif" alt="" class="animate-[wiggle_1s_ease-in-out_infinite]   ">
       </div>
       <!--~~~~~~~~~~~~~~~~~~~~Button section end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -95,100 +97,151 @@
 
   <script>
 
-    let progress = document.getElementById("progress");
-    let song = document.querySelector("audio");
-    let controlicon = document.getElementById("controlicon");
-    let darkmod=document.getElementById("darkmod");
-    let title=document.getElementById("title");
-    let next=document.getElementById("next");
-    let prev=document.getElementById("prev");
+
+
+let progress = document.getElementById("progress");
+let song = document.querySelector("audio");
+let controlicon = document.getElementById("controlicon");
+let darkmod = document.getElementById("darkmod");
+let title = document.getElementById("title");
+let next = document.getElementById("next");
+let prev = document.getElementById("prev");
+let img = document.getElementById("img");
+let img2 = document.getElementById("img2");
 
 
 
-    song.onloadedmetadata = function () {
-      progress.max = song.duration;
-      progress.value = song.currentTime;
 
-    }
+song.onloadedmetadata = function () {
+  progress.max = song.duration;
+  progress.value = song.currentTime;
 
-    function playpause() {
-      if (controlicon.classList.contains("fa-pause")) {
-        song.pause();
-        controlicon.classList.remove("fa-pause");
-        controlicon.classList.add("fa-play");
-      }
-      else {
-        song.play();
-        controlicon.classList.add("fa-pause");
-        controlicon.classList.remove("fa-play");
-      }
-    }
+}
 
-    if (song.play()) {
-      setInterval(() => {
-        progress.value = song.currentTime;
-      }, 500);
-    }
+function playpause() {
+  if (controlicon.classList.contains("fa-pause")) {
+    song.pause();
+    controlicon.classList.remove("fa-pause");
+    controlicon.classList.add("fa-play");
+  }
+  else {
+    song.play();
+    controlicon.classList.add("fa-pause");
+    controlicon.classList.remove("fa-play");
+  }
+}
 
-    progress.onchange = function () {
-      song.play();
-      song.currentTime = progress.value;
-      controlicon.classList.add("fa-pause");
-      controlicon.classList.remove("fa-play");
-    }
+if (song.play()) {
+  setInterval(() => {
+    progress.value = song.currentTime;
+  }, 500);
+}
 
-    const songs=[   
-      {
-        title:"shiddat",
-        name:"shiddat"
-      },
-    {  
-      title:"Jo tum na ho",
-      name:"Jo-Tum-Na-Ho"
-    },
-      
-    {
-      title:"Mere liye tum",
-      name:"mere-liye-tum"
-    },
-  
- 
-    {
-      title:"Heeriye",
-      name:"Heeriye"
-    },
-    {
-      title:"suno na suno na",
-      name:"b2"
-    },
-    {
-    title:"Samjhawan",
-      name:"Samjhawan"
-    },
-    {
-    title:"Feelings",
-      name:"Itni Si Baat Hain"
-    },
+progress.onchange = function () {
+  song.play();
+  song.currentTime = progress.value;
+  controlicon.classList.remove("fa-play");
+  controlicon.classList.add("fa-pause");
+}
+
+const posters=[{
+name:"shiddat"
+},
+{
+name:"sayad"
+},
+{
+name:"mere_liye_tum"
+},
+{
+  name:"heeriye"
+},
+{
+  name:"suno_na"
+},
+{
+  name:"samjhawan"
+},
+{
+  name:"itni_si_baat"
+},
 ];
 
 
-const loadSong=(songs)=>{
+const change = (posters)=>{
+  img.src = "images/" + posters.name +".jpg";
+}
+
+const change2 = (posters)=>{
+  img2.src = "images/" + posters.name +".jpg";
+}
+
+
+const songs = [
+  {
+    title: "shiddat",
+    name: "shiddat"
+  },
+  {
+    title: "Jo tum na ho",
+    name: "Jo-Tum-Na-Ho"
+  },
+
+  {
+    title: "Mere liye tum",
+    name: "mere-liye-tum"
+  },
+
+
+  {
+    title: "Heeriye",
+    name: "Heeriye"
+  },
+  {
+    title: "suno na suno na",
+    name: "b2"
+  },
+  {
+    title: "Samjhawan",
+    name: "Samjhawan"
+  },
+  {
+    title: "Feelings",
+    name: "Itni Si Baat Hain"
+  },
+];
+
+
+const loadSong = (songs) => {
   title.textContent = songs.title;
-  song.src = "audio/"+songs.name+".mp3";
-}
-
-
-songIndex=0;
-const nextSong = () =>{
-  songIndex = (songIndex+1) % songs.length;
-loadSong(songs[songIndex]);
-
+  song.src = "audio/" + songs.name + ".mp3";
 
 }
 
-const prevSong = () =>{
-  songIndex = (songIndex-1+songs.length) % songs.length;
-loadSong(songs[songIndex]);
+
+songIndex = 0;
+const nextSong = () => {
+  songIndex = (songIndex + 1) % songs.length;
+  songIndex =(songIndex +1) % posters.length;
+  change(posters[songIndex]);
+  loadSong(songs[songIndex]);
+  change2(posters[songIndex]);
+  song.play();
+  song.pause();
+
+}
+
+const prevSong = () => {
+  songIndex = (songIndex - 1 + songs.length) % songs.length;
+  songIndex = (songIndex - 1 + posters.length) % posters.length;
+  change(posters[songIndex]);
+  loadSong(songs[songIndex]);
+  change2(posters[songIndex]);
+
+  song.pause();
+  song.play();
+
+
 
 
 }
@@ -197,8 +250,6 @@ prev.addEventListener('click', prevSong);
 
 
 
-
-  
 
   </script>
 </body>

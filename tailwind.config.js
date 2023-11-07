@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
-  'watch': 'npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch',
+  content: ["./src/**/*.{html,js}", "./**/*.{html, js}"],
+  'watch': 'npx tailwindcss -i ./input.css -o ./dist/output.css --watch',
   theme: {
     extend: {
 

@@ -606,6 +606,10 @@ video {
   border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 }
 
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 @keyframes wiggle {
   0%, 100% {
     transform: rotate(-3deg);
@@ -696,6 +700,10 @@ video {
   background-color: rgb(126 34 206 / var(--tw-bg-opacity));
 }
 
+.bg-cover {
+  background-size: cover;
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -772,32 +780,32 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
-.shw{
+.shw {
   box-shadow: 0px 0px 60px 5px rgb(235, 126, 235);
 }
 
-.shw-btn{
+.shw-btn {
   box-shadow: 0px 0px 15px 5px rgb(219, 214, 219);
 }
 
-#progress{
+#progress {
   -webkit-appearance: none;
-  width:300px;
-  height:6px;
+  width: 300px;
+  height: 6px;
   background: purple;
   border-radius: 4px;
   cursor: pointer;
-  margin:10px 0;
+  margin: 10px 0;
 }
 
-#progress::-webkit-slider-thumb{
+#progress::-webkit-slider-thumb {
   -webkit-appearance: none;
   background: purple;
-  width:30px;
+  width: 30px;
   height: 30px;
   border-radius: 50%;
-  border:8px solid white;
-  box-shadow: 0 5px 5px rgba(255,26,26,0.22);
+  border: 8px solid white;
+  box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
 }
 
 .hover\:h-20:hover {
